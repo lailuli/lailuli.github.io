@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lailu Li's Homepage</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #24292e;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fc;
+        }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fc;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-color: #f8f9fc;
+        }
+
+        .header-background {
+            position: relative;
+            width: 100%;
+            height: auto;
+            background: linear-gradient(135deg, #1a1f35 0%, #2d3250 100%);
+            padding: 60px 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            color: white;
+        }
+
+        .header-content h1 {
+            font-size: 2.8em;
+            font-weight: 300;
+            margin-bottom: 25px;
+            letter-spacing: 0.02em;
+        }
+
+        .header-info p {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 6px 0;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+        }
+
+        .header-info p:last-child {
+            margin-bottom: 15px;
+        }
+
+        .header-links {
+            margin-top: 20px;
+        }
+
+        .header-links a {
+            color: white;
+            font-size: 1.5em;
+            margin-right: 15px;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .header-links a:hover {
+            opacity: 1;
+        }
+
+        .container {
+            display: flex;
+            gap: 50px;
+            padding: 0 20px;
+        }
+
+        .left-column {
+            flex: 1;
+            max-width: 300px;
+            padding: 20px;
+            background: #f8f9fc;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .right-column {
+            flex: 2;
+            max-width: 900px;
+            background: #f8f9fc;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fc;
+            border-radius: 0;
+            border: none;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            font-weight: 400;
+            color: #1a1f35;
+            margin: 0 0 20px 0;
+            letter-spacing: 0.01em;
+        }
+
+        h3 {
+            font-size: 1.1em;
+            color: #24292e;
+            margin: 15px 0 8px 0;
+            font-weight: 600;
+        }
+
+        p {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Text", Roboto, sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            font-weight: 400;
+            margin-bottom: 16px;
+            font-size: 0.95em;
+        }
+
+        .publication-item {
+            margin-bottom: 12px;
+            padding-left: 0;
+            border-left: none;
+        }
+
+        .publication-item:hover {
+            background-color: rgba(0, 60, 135, 0.03);
+        }
+
+        .pub-title {
+            font-weight: 500;
+            color: #2d3250;
+            margin-bottom: 2px;
+            line-height: 1.3;
+            display: block;
+        }
+
+        .pub-authors {
+            font-size: 0.9em;
+            color: #586069;
+            margin-bottom: 1px;
+            line-height: 1.3;
+        }
+
+        .pub-venue {
+            font-size: 0.9em;
+            color: #586069;
+            font-style: italic;
+            margin-bottom: 0;
+            line-height: 1.3;
+        }
+
+        .image-scroll-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            overflow: hidden;
+            border: none;
+            box-shadow: none;
+            background: #f8f9fc;
+        }
+
+        .image-scroll {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .image-scroll img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            flex-shrink: 0;
+            flex-basis: 100%;
+        }
+
+        .scroll-buttons {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0 15px;
+            z-index: 2;
+        }
+
+        .scroll-btn {
+            background: none;
+            color: rgba(26, 31, 53, 0.4);
+            border: none;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 24px;
+            transition: color 0.3s ease;
+            padding: 0;
+        }
+
+        .scroll-btn:hover {
+            color: rgba(26, 31, 53, 0.8);
+        }
+
+        .position {
+            font-size: 1.1em;
+            color: #586069;
+            margin: 3px 0;
+        }
+
+        .date {
+            display: block;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .visitor-stats {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 10px 0;
+        }
+
+        .visitor-stats img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 1024px) {
+            .main-wrapper {
+                padding: 15px;
+            }
+            
+            .container {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .left-column, .right-column {
+                max-width: 100%;
+            }
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .profile-section img {
+            width: 200px;
+            height: 260px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: none;
+            box-shadow: none;
+        }
+
+        .profile-section h1 {
+            font-size: 1.8em;
+            margin: 10px 0;
+            color: #24292e;
+        }
+
+        .section p {
+            text-align: justify;
+            text-justify: inter-word;
+            font-size: 1em;
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 16px;
+        }
+
+        .section ul {
+            margin: 0;
+            padding-left: 25px;
+        }
+
+        .section ul li {
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .section p + ul {
+            margin-top: 10px;
+        }
+
+        .header-info a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .header-info a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-background">
+        <div class="header-content">
+            <h1>Lailu Li (李来禄)</h1>
+            <div class="header-info">
+                <p>Assistant Professor</p>
+                <p>School of Mechanical and Power Engineering, Harbin University of Science and Technology</p>
+                <!-- <p><a href="https://www.notion.so/lailu/RICH-Lab-Welcome-to-RICH-Lab-800207c36e46416cbaddf6cd6c63f2f2" target="_blank">Lab Website</a></p> -->
+            </div>
+            <div class="header-links">
+                <a href="mailto:lilailucn@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                <a href="https://scholar.google.com/citations?hl=zh-CN&user=3jjDNd4AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-wrapper">
+        <div class="container">
+            <div class="left-column">
+                <div class="profile-section">
+                    <img src="images/new portrait.png" alt="Lailu Li">
+                </div>
+
+                <div class="section">
+                    <h2>Experience</h2>
+                    <ul>
+                        <li>Assistant Professor<br>
+                        <span class="position">Harbin University of Science and Technology</span>
+                        <span class="date">2024 - Present</span></li>
+                        
+                        <li>Post-doctoral Researcher<br>
+                        <span class="position">The Chinese University of Hong Kong</span>
+                        <span class="date">2023 - 2024</span></li>
+                        
+                        <li>Post-doctoral Researcher<br>
+                        <span class="position">Harbin Institute of Technology</span>
+                        <span class="date">2020 - 2022</span></li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Education</h2>
+                    <ul>
+                        <li>Ph.D. in Mechanical Engineering<br>
+                        <span class="position">Harbin Engineering University</span>
+                        <span class="date">2014 - 2020</span></li>
+                        
+                        <li>Visiting Ph.D. Student<br>
+                        <span class="position">The University of Texas at Austin</span>
+                        <span class="date">2017 - 2018</span></li>
+                        
+                        <li>B.S. in Mechatronics<br>
+                        <span class="position">China University of Mining and Technology</span>
+                        <span class="date">2008 - 2012</span></li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Visitors</h2>
+                    <div class="visitor-stats">
+                        <a href="https://info.flagcounter.com/Lailu">
+                            <img src="https://s11.flagcounter.com/map/Lailu/size_l/txt_000000/border_CCCCCC/pageviews_0/flags_0/" alt="Visitor Map" border="0">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="section">
+                    <h2>About</h2>
+                    <p>I am currently an Assistant Professor at Harbin University of Science and Technology. I earned my Ph.D. in Mechanical Engineering from Harbin Engineering University in 2020, under the supervision of Prof. Lixun Zhang, with co-guidance from Prof. James Sulzer (formerly at UT-Austin, now at Case Western Reserve University). Following my Ph.D., I worked as a Postdoctoral Researcher at Prof. Hongliang Ren's Lab at The Chinese University of Hong Kong (CUHK), where I focused on developing robotic technologies for rehabilitation, assistance, and medical applications. My research has been driven by a passion for advancing robotics to address critical challenges in healthcare and human assistance.</p>
+                </div>
+
+                <div class="section">
+                    <h2>Research</h2>
+                    <p>My research interests include:</p>
+                    <ul>
+                        <li>Robotic Technology in Rehabilitation</li>
+                        <li>Human-machine System Modeling</li>
+                        <li>Medical Robotics</li>
+                        <li>Mechanism Design and Optimization</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Research Projects</h2>
+                    
+                    <div class="project-section">
+                        <h3 class="project-title">Origami and Compliant Mechanism</h3>
+                        <div class="image-scroll-container">
+                            <div class="scroll-buttons">
+                                <button class="scroll-btn prev-btn">&lt;</button>
+                                <button class="scroll-btn next-btn">&gt;</button>
+                            </div>
+                            <div class="image-scroll">
+                                <img src="images/origami/GA.jpg" alt="GA">
+                                <img src="images/origami/rigid to compliant.png" alt="Rigid to Compliant">
+                                <img src="images/origami/compliant_4b.gif" alt="Compliant 4B">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="project-title">Exoskeleton for Gait Training</h3>
+                        <div class="image-scroll-container">
+                            <div class="scroll-buttons">
+                                <button class="scroll-btn prev-btn">&lt;</button>
+                                <button class="scroll-btn next-btn">&gt;</button>
+                            </div>
+                            <div class="image-scroll">
+                                <img src="images/exoskeleton/Jansen.jpg" alt="Jansen Mechanism">
+                                <img src="images/exoskeleton/MMT result.png" alt="MMT Result">
+                                <img src="images/exoskeleton/B&W Exo.jpeg" alt="B&W Exo">
+                                <img src="images/exoskeleton/screw-nut.png" alt="Screw Nut">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="project-title">Biomechanics</h3>
+                        <div class="image-scroll-container">
+                            <div class="scroll-buttons">
+                                <button class="scroll-btn prev-btn">&lt;</button>
+                                <button class="scroll-btn next-btn">&gt;</button>
+                            </div>
+                            <div class="image-scroll">
+                                <img src="images/biomechanics modeling/Deep_squat.jpg" alt="Deep Squat">
+                                <img src="images/biomechanics modeling/deep squat muscle.png" alt="Deep Squat Muscle">
+                                <img src="images/biomechanics modeling/bench press.png" alt="Bench Press">
+                                <img src="images/biomechanics modeling/bench press muscle.png" alt="Bench Press Muscle">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="project-title">Cable-Driven System</h3>
+                        <div class="image-scroll-container">
+                            <div class="scroll-buttons">
+                                <button class="scroll-btn prev-btn">&lt;</button>
+                                <button class="scroll-btn next-btn">&gt;</button>
+                            </div>
+                            <div class="image-scroll">
+                                <img src="images/cable_driven/cable-driven.jpg" alt="Cable Driven">
+                                <img src="images/cable_driven/CDU.png" alt="CDU">
+                                <img src="images/cable_driven/collaborative exercise.png" alt="Collaborative Exercise">
+                                <img src="images/cable_driven/cable-simulation-2.gif" alt="Cable Simulation">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Selected Publications</h2>
+                    
+                    <!-- Journal Papers -->
+                    <h3>Journal Papers</h3>
+                    <div class="publication-item">
+                        <p class="pub-title">[J1] An Overhead Collapsible Origami-Based Mount for Medical Applications</p>
+                        <p class="pub-authors"><strong>L Li</strong>, FL Long, I Lim, T Sun, H Ren</p>
+                        <p class="pub-venue">Robotics, 2023</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <p class="pub-title">[J2] Modeling and control strategy of a haptic interactive robot based on a cable-driven parallel mechanism</p>
+                        <p class="pub-authors">D Song, X Xiao, G Li, L Zhang, F Xue, <strong>L Li</strong></p>
+                        <p class="pub-venue">Mechanical Sciences, 2023</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <p class="pub-title">[J3] Running Experimental Research of a Cable-Driven Astronaut on-Orbit Physical Exercise Equipment</p>
+                        <p class="pub-authors"><strong>L Li</strong>, L Zhang, B Wang, F Xue, Y Zou, D Song</p>
+                        <p class="pub-venue">Machines, 2022</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <p class="pub-title">[J4] Kinematic comparison of single degree-of-freedom robotic gait trainers</p>
+                        <p class="pub-authors">J Lee, <strong>L Li</strong>, SY Shin, AD Deshpande, J Sulzer</p>
+                        <p class="pub-venue">Mechanism and Machine Theory, 2021</p>
+                    </div>
+
+                    <div class="publication-item">
+                        <p class="pub-title">[J5] Running experimental research of a wire driven astronaut rehabilitative training robot</p>
+                        <p class="pub-authors">Y Zou, L Zhang, <strong>L Li</strong>, H Ma, K Liu</p>
+                        <p class="pub-venue">IEEE Access, 2018</p>
+                    </div>
+
+                    <div class="publication-item">
+                        <p class="pub-title">[J6] Force control strategy and bench press experimental research of a cable driven astronaut rehabilitative training robot</p>
+                        <p class="pub-authors">L Zhang, <strong>L Li</strong>, Y Zou, K Wang, X Jiang, H Ju</p>
+                        <p class="pub-venue">IEEE Access, 2017</p>
+                    </div>
+
+                    <div class="publication-item">
+                        <p class="pub-title">[J7] Force Control and Experimental Study of a Cable-Driven Robot for Astronaut Deep Squat Training</p>
+                        <p class="pub-authors">L Zhang, <strong>L Li</strong>, X Jiang, W Tian, D Song</p>
+                        <p class="pub-venue">Jiqiren/Robot, 2017</p>
+                    </div>
+
+                    <div class="publication-item">
+                        <p class="pub-title">[J8] Workspace Algorithm and Layout Optimization of Parallel Mechanisms Driven by Flexible Cables</p>
+                        <p class="pub-authors">L Zhang, D Song, <strong>L Li</strong>, F Xue</p>
+                        <p class="pub-venue">Journal of Harbin Engineering University, 2017</p>
+                    </div>
+
+                    <div class="publication-item">
+                        <p class="pub-title">[J9] Prototype design, modeling, and experimental research of a novel lower limb powered exoskeleton</p>
+                        <p class="pub-authors">L Zhang, <strong>L Li</strong>, Z Chen, D Song</p>
+                        <p class="pub-venue">Proceedings of the Institution of Mechanical Engineers, Part C: Journal of Mechanical Engineering Science, 2017</p>
+                    </div>
+
+                    <!-- Conference Papers -->
+                    <h3>Conference Papers</h3>
+                    <div class="publication-item">
+                        <p class="pub-title">[C1] Chained Flexible Capsule Endoscope: Unraveling the Conundrum of Size Limitations and Functional Integration for Gastrointestinal Transitivity</p>
+                        <p class="pub-authors">S Yuan, G Li, B Liang, <strong>L Li</strong>, Q Zheng, S Song, Z Li, H Ren</p>
+                        <p class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), 2024</p>
+                    </div>
+
+                    <div class="publication-item">
+                        <p class="pub-title">[C2] Simulation Analysis of A Cable-Driven Astronaut on-Orbit Physical Exercise Equipment</p>
+                        <p class="pub-authors"><strong>L Li</strong>, L Zhang, B Wang, D Song</p>
+                        <p class="pub-venue">International Conference on Advanced Robotics and Applications (ICARA), 2023</p>
+                    </div>
+
+                    <div class="publication-item">
+                        <p class="pub-title">[C3] Dynamic analysis of the human-machine system of a 4-Bar gait constraint mechanism</p>
+                        <p class="pub-authors"><strong>L Li</strong>, L Zhang, B Wang, D Song</p>
+                        <p class="pub-venue">International Conference on Mechatronics and Robotics Applications (ICMRA), 2022</p>
+                    </div>
+
+                    <div class="publication-item">
+                        <p class="pub-title">[C4] Trajectory Planning of an Underactuated Cable-Driven Planar Device for the Trunk</p>
+                        <p class="pub-authors"><strong>L Li</strong>, S Wang, G Yang</p>
+                        <p class="pub-venue">IEEE International Conference on Mechatronics and Automation (ICMA), 2021</p>
+                    </div>
+
+                    <div class="publication-item">
+                        <p class="pub-title">[C5] A Radau Pseudospectral Method-Based Optimization Model for Upper Limb Muscle Force Analysis During Bench Press Process</p>
+                        <p class="pub-authors"><strong>L Li</strong>, L Zhang, X Deng, D Song, F Xue</p>
+                        <p class="pub-venue">Basic & Clinical Pharmacology & Toxicology, 2019</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.querySelectorAll('.image-scroll-container').forEach(container => {
+        const scroll = container.querySelector('.image-scroll');
+        const prevBtn = container.querySelector('.prev-btn');
+        const nextBtn = container.querySelector('.next-btn');
+        const images = scroll.querySelectorAll('img');
+        let currentIndex = 0;
+
+        // 设置初始位置
+        updateScroll();
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateScroll();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateScroll();
+        });
+
+        function updateScroll() {
+            scroll.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    });
+    </script>
+</body>
+</html>
